@@ -13,6 +13,7 @@ import org.springframework.util.StringUtils;
 import tk.mybatis.mapper.weekend.Weekend;
 import tk.mybatis.mapper.weekend.WeekendCriteria;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -48,5 +49,16 @@ public class BuyServiceImpl {
         weekend.orderBy("buyTime").desc();
         return systemMapper.selectByExample(weekend);
     }
+
+
+    @Transactional(rollbackFor = Exception.class)
+    public void buy2() {
+        Order order = new Order();
+        order.setProduct("芒果");
+        order.setPrice(new BigDecimal(0.7));
+        int flag = orderMapper.insert(order);
+        System.out.println(flag);
+    }
+
 
 }

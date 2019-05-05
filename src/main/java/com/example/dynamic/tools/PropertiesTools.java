@@ -42,7 +42,7 @@ public class PropertiesTools {
                 env.getProperty(prefix + "time-between-eviction-runs-millis", Integer.class));
         prop.put("minEvictableIdleTimeMillis", env.getProperty(prefix + "min-evictable-idle-time-millis", Integer.class));
         prop.put("filters", env.getProperty(prefix + "filters"));
-        prop.put("connectProperties", setConnectionProperties(env.getProperty(prefix + "connection-properties")));
+        //prop.put("connectProperties", setConnectionProperties(env.getProperty(prefix + "connection-properties")));
         prop.put("useGlobalDataSourceStat", env.getProperty(prefix + "use-global-data-source-stat"));
         logger.info("dataSource Properties :{}", prop.toString());
         return prop;

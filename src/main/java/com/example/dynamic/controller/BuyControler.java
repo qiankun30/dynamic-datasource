@@ -56,4 +56,19 @@ public class BuyControler {
     }
 
 
+
+    @RequestMapping(value = "/pay2")
+    public ModelAndView pay() {
+        ModelAndView result = new ModelAndView("result");
+        try {
+            buyService.buy2();
+            result.addObject("result", "恭喜您，抢购成功!");
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            result.addObject("result", e.getMessage());
+        }
+        return result;
+    }
+
+
 }
